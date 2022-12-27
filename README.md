@@ -68,3 +68,33 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Sample Hardhat Project
+
+This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+
+Try running some of the following tasks:
+
+```shell
+npx hardhat help
+npx hardhat test
+REPORT_GAS=true npx hardhat test
+npx hardhat node
+npx hardhat run scripts/deploy.ts
+```
+### Configuration 
+[configuration-docs](https://hardhat.org/hardhat-runner/docs/config)
+
+### Connecting a wallet or Dapp to Hardhat Network
+By default, Hardhat will spin up a new in-memory instance of Hardhat Network on startup. It's also possible to run Hardhat Network in a standalone fashion so that external clients can connect to it. This could be MetaMask, your Dapp front-end, or a script.
+
+To run Hardhat Network in this way, run `npx hardhat node`:
+```shell
+npx hardhat node
+```
+
+If you want to connect Hardhat to this node, for example to run a deployment script against it, you simply need to run it using --network localhost.
+```shell
+npx hardhat run scripts/deploy.ts --network localhost
+```
