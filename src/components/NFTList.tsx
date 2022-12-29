@@ -3,6 +3,8 @@ import Card from 'react-bootstrap/Card';
 import React, {useEffect, useState} from "react";
 import {Col, Container, Row} from "react-bootstrap";
 import CardGroup from "react-bootstrap/CardGroup";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 export interface NFTListProps {
     connection: Alchemy
@@ -55,7 +57,7 @@ function NFTList(props: NFTListProps) {
     }, [publicKey, props.connection]);
 
     // @ts-ignore
-    const onSubmit= (event) => {
+    const onSubmit = (event) => {
         setPublicKey(event.target.publicKey.value);
         event.preventDefault()
     };
@@ -64,12 +66,19 @@ function NFTList(props: NFTListProps) {
     return (
         <CardGroup>
             <Container>
-                <h3>Total NFTs: {totalNFTs}</h3>
-                <form onSubmit={onSubmit}>
-                    <input type="text" name="publicKey"/>
-                    <button type="submit">Submit</button>
-                </form>
-
+                <h3  className="mb-3">Total NFTs: {totalNFTs}</h3>
+                <br/>
+                <Form onSubmit={onSubmit}>
+                    <Form.Group as={Row} className="mb-3" controlId="formBasicEmail">
+                        <Col sm="8">
+                            <Form.Control type="text" name="publicKey" placeholder="0x74F98024d3317202dCe4FDd7d618486a4b89A0a1"/>
+                        </Col>
+                        <Col sm="4">
+                            <Button variant="outline-primary" type="submit">Submit</Button>
+                        </Col>
+                    </Form.Group>
+                </Form>
+                <br/>
                 <Row xs={1} md={3} className="g-4">
                     {allNfts?.map((nft, idx) => (
                         <Col key={idx}>
